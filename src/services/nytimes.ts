@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import ResponseArticleData from 'types/response'
 import { FilterState } from 'store/filterSlice'
 
-interface Params {
+export interface Params {
   begin_date: string
   end_date: string
   page: number
@@ -19,7 +19,7 @@ export const getNytimesArticle = async (params: Params) => {
           facet_fields: 'news_desk',
           facet_filter: true,
           sort: 'relevance',
-          params,
+          ...params,
         },
       }
     )
