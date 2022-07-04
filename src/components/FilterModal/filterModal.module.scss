@@ -1,0 +1,74 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include flexbox.flexbox(center, center);
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(colors.$BLACK, 0.5);
+
+  .container {
+    @include flexbox.flexbox(center, start);
+    flex-direction: column;
+    gap: 8px;
+    width: 335px;
+    height: 480px;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.05em;
+    background-color: colors.$WHITE;
+    border-radius: 16px;
+
+    .filter {
+      @include flexbox.flexbox(between, center);
+      width: 295px;
+      height: 44px;
+      padding: 10px 20px;
+      margin-bottom: 40px;
+      font-size: 16px;
+      font-weight: 400;
+      color: colors.$GRAYG;
+      border: 1px solid colors.$GRAYG;
+      border-radius: 8px;
+
+      &::placeholder {
+        color: colors.$GRAYG;
+      }
+    }
+
+    .datePicker {
+      position: absolute;
+      z-index: 1000;
+    }
+
+    .checkboxs {
+      width: 295px;
+      height: 76px;
+
+      label {
+        height: 34px;
+        padding: 6px 12px 4px;
+        font-size: 14px;
+        font-weight: 400;
+        color: colors.$GRAYF;
+        border: 1px solid colors.$WHITESIXZERO;
+        border-radius: 30px;
+      }
+    }
+
+    .submitBtn {
+      width: 295px;
+      height: 60px;
+      line-height: 24px;
+      color: colors.$WHITE;
+      text-align: center;
+      background-color: colors.$MAINBLUE;
+      border-radius: 16px;
+    }
+  }
+}

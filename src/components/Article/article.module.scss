@@ -1,0 +1,58 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  @include flexbox.flexbox(between, start);
+  flex-direction: column;
+  width: 335px;
+  height: 104px;
+  padding: 10px 20px;
+  color: colors.$BLACK;
+  letter-spacing: -0.05em;
+  background-color: colors.$ARTICLEBG;
+  border-radius: 8px;
+
+  .header {
+    @include flexbox.flexbox(between, start);
+    width: 295px;
+    text-transform: capitalize;
+
+    h1 {
+      width: 260px;
+      height: 56px;
+      overflow: hidden;
+      font-size: 18px;
+      line-height: 28px;
+
+      a {
+        &:link,
+        &:active,
+        &:visited {
+          color: colors.$BLACK;
+        }
+      }
+    }
+
+    .scrapIcon {
+      width: 16px;
+      height: 15px;
+      margin-top: 5px;
+    }
+
+    .scrap {
+      path {
+        stroke: colors.$STARFILL;
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 295px;
+    height: 20px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,29 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.articles {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 80px);
+  padding: 20px 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: colors.$BGGRAY;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      &:last-child {
+        margin-bottom: 60px;
+      }
+    }
+  }
+}
