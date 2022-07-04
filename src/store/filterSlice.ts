@@ -10,8 +10,8 @@ export interface FilterState {
 
 const initialFilterState: FilterState = {
   q: '',
-  begin_date: moment().format('YYYYMMDD'),
-  end_date: moment().format('YYYYMMDD'),
+  begin_date: '20220202',
+  end_date: '20220202',
   page: 0,
 }
 
