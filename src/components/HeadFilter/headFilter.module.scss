@@ -19,17 +19,28 @@
     row-gap: 10px;
     align-items: center;
 
-    li > button {
-      @include flexbox.flexbox(center, center);
-      gap: 4px;
-      height: 34px;
-      padding: 10px;
-      border: 1px solid colors.$GRAYG;
-      border-radius: 30px;
+    li {
+      button {
+        @include flexbox.flexbox(center, center);
+        gap: 4px;
+        height: 34px;
+        padding: 10px;
+        border: 1px solid colors.$GRAYG;
+        border-radius: 30px;
 
-      .filterIcon {
-        width: 16px;
-        height: 16px;
+        .filterIcon {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .filterActive {
+        color: colors.$MAINBLUE;
+        border: 1px solid colors.$BLUESKY;
+
+        path {
+          fill: colors.$MAINBLUE;
+        }
       }
     }
   }
