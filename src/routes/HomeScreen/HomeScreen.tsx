@@ -49,6 +49,9 @@ const HomeScreen = () => {
           {articleState.loading === 'pending' && <li>로딩중...</li>}
           {articleState.loading === 'idle' && !articleState.error && <li ref={loader} className={styles.loader} />}
         </ul>
+        {articleState.entities.length === 0 && articleState.loading === 'idle' && (
+          <div>검색 결과를 찾을 수 없습니다.</div>
+        )}
       </div>
     </div>
   )

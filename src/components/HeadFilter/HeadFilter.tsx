@@ -34,7 +34,7 @@ const HeadFilter = () => {
         <li>
           <button type='button' onClick={onClickFilter} className={cx({ [styles.filterActive]: headlineActive })}>
             <MagnifierIcon className={styles.filterIcon} />
-            <span>{headlineActive ? `${filter.q}` : '전체 헤드라인'}</span>
+            <span>{headlineActive ? `${`${filter.q.substring(0, 7)}...`}` : '전체 헤드라인'}</span>
           </button>
         </li>
         <li>
