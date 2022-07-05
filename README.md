@@ -25,6 +25,7 @@ src
 
 # Dependency
 + Redux Toolkit
++ redux-persist
 + react-router-dom
 + react-datepicker
 + axios
