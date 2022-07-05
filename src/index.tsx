@@ -4,8 +4,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
 
-import reportWebVitals from './reportWebVitals'
 import Routes from './routes'
+import reportWebVitals from './reportWebVitals'
 
 import { store, persistor } from './store/index'
 
