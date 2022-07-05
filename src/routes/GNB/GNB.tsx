@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import cx from 'classnames'
 
 import { HomeIcon, ScrapIcon } from 'assets/svgs'
+
 import styles from './gnb.module.scss'
 
 const GNB = () => {

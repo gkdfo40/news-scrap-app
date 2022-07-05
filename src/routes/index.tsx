@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 
+import GNB from './GNB/GNB'
 import HomeScreen from './HomeScreen/HomeScreen'
 import ScrapScreen from './ScrapScreen/ScrapScreen'
-import GNB from './GNB/GNB'
 
 import styles from './Routes.module.scss'
 import FilterModal from 'components/FilterModal/FilterModal'

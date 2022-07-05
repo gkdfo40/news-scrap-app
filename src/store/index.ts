@@ -1,14 +1,13 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { setupListeners } from '@reduxjs/toolkit/dist/query'
-import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { setupListeners } from '@reduxjs/toolkit/dist/query'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 
-import scrapsReducer from './scrapSlice'
 import modalReducer from './modalSlice'
+import scrapsReducer from './scrapSlice'
 import filterReducer from './filterSlice'
 import articleReducer from './articleSlice'
 import glocationReducer from './glocationSlice'
-import { searchArticleApi } from 'services/nytimes'
 
 const persistConfig = {
   key: 'scrapStorage',
@@ -23,7 +22,6 @@ const rootReducer = combineReducers({
   filter: filterReducer,
   article: articleReducer,
   glocation: glocationReducer,
-  [searchArticleApi.reducerPath]: searchArticleApi.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getNytimesArticle, Params } from 'services/nytimes'
+
 import { Doc } from 'types/response'
+import { getNytimesArticle, Params } from 'services/nytimes'
 
 export const fetchArticleByFilter = createAsyncThunk('article/fetchArticleByFilter', async (filter: Params) => {
   const response = await getNytimesArticle(filter)

@@ -1,7 +1,5 @@
 import axios from 'axios'
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import ResponseArticleData from 'types/response'
-import { FilterState } from 'store/filterSlice'
 
 export interface Params {
   begin_date: string
@@ -31,22 +29,3 @@ export const getNytimesArticle = async (params: Params) => {
     throw new Error((error as Error).message)
   }
 }
-
-export const searchArticleApi = createApi({
-  reducerPath: 'searchArticleApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: `https://api.nytimes.com/svc/search/v2`,
-  }),
-  endpoints: (builder) => ({
-    getAticleByFilter: builder.query<ResponseArticleData, FilterState>({
-      query: (params) => {
-        return {
-          url: '/articlesearch.json?api-key=KAinT3FvXZq1yk4RImXmVAgQgUp0oWSL&facet_fields=news_desk&sort=relevance',
-          params,
-        }
-      },
-    }),
-  }),
-})
-
-export const { useGetAticleByFilterQuery } = searchArticleApi

@@ -1,17 +1,18 @@
-import { ChangeEvent, FormEvent, useRef, useState } from 'react'
+import moment from 'moment'
 import ReactDOM from 'react-dom'
-
-import { closeModal } from 'store/modalSlice'
-import { modifyFilter } from 'store/filterSlice'
-import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
-import useOnClickOutside from 'hooks/useOnClickOutside'
+import { ChangeEvent, FormEvent, useRef, useState } from 'react'
 
 import { CalenderIcon } from 'assets/svgs'
-import styles from './filterModal.module.scss'
 import DatePicker from 'components/DatePicker/DatePicker'
-import moment from 'moment'
-import { resetArticle } from 'store/articleSlice'
+
+import { closeModal } from 'store/modalSlice'
 import { setNation } from 'store/glocationSlice'
+import { modifyFilter } from 'store/filterSlice'
+import { resetArticle } from 'store/articleSlice'
+import useOnClickOutside from 'hooks/useOnClickOutside'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
+
+import styles from './filterModal.module.scss'
 
 const FilterModal = () => {
   const [headlineText, setHeadlineText] = useState('')

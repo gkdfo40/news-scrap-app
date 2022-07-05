@@ -1,11 +1,12 @@
-import { MagnifierIcon, CalenderIcon } from 'assets/svgs'
-
-import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
-import { openModal } from 'store/modalSlice'
-import styles from './headFilter.module.scss'
 import cx from 'classnames'
-import { Nation } from 'store/glocationSlice'
 import { useCallback } from 'react'
+
+import { openModal } from 'store/modalSlice'
+import { Nation } from 'store/glocationSlice'
+import { MagnifierIcon, CalenderIcon } from 'assets/svgs'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
+
+import styles from './headFilter.module.scss'
 
 const HeadFilter = () => {
   const filter = useAppSelector((state) => state.filter)

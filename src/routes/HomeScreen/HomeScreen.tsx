@@ -3,12 +3,11 @@ import { useCallback, useEffect, useRef } from 'react'
 import Article from 'components/Article/Article'
 import HeadFilter from 'components/HeadFilter/HeadFilter'
 
+import { pageNationFilter } from 'store/filterSlice'
+import { fetchArticleByFilter } from 'store/articleSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
 
-import { pageNationFilter } from 'store/filterSlice'
-
 import styles from './homeScreen.module.scss'
-import { fetchArticleByFilter } from 'store/articleSlice'
 
 const HomeScreen = () => {
   const loader = useRef(null)

@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom'
 
-import { useAppSelector } from 'hooks/reduxhook'
-
-import HeadFilter from 'components/HeadFilter/HeadFilter'
-import Article from 'components/Article/Article'
 import { NoScrapIcon } from 'assets/svgs'
+import Article from 'components/Article/Article'
+import HeadFilter from 'components/HeadFilter/HeadFilter'
+
+import { useAppSelector } from 'hooks/reduxhook'
 
 import styles from './scrapScreen.module.scss'
 

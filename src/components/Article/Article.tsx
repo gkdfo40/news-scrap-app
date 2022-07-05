@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
-import moment from 'moment'
 import cx from 'classnames'
+import moment from 'moment'
+import { Link } from 'react-router-dom'
 
-import { SubtracteIcon } from 'assets/svgs'
 import { Doc } from 'types/response'
+import { SubtracteIcon } from 'assets/svgs'
 import { addScrap, deleteScrap } from 'store/scrapSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
 
