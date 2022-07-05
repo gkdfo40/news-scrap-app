@@ -50,14 +50,30 @@
       width: 295px;
       height: 76px;
 
-      label {
-        height: 34px;
-        padding: 6px 12px 4px;
-        font-size: 14px;
-        font-weight: 400;
-        color: colors.$GRAYF;
-        border: 1px solid colors.$WHITESIXZERO;
-        border-radius: 30px;
+      li {
+        float: left;
+        margin-bottom: 10px;
+        margin-left: 3px;
+
+        input[type='checkbox'] {
+          display: none;
+
+          &:checked + label {
+            color: colors.$WHITE;
+            background-color: colors.$BLUESKY;
+            border: 1px solid colors.$BLUESKY;
+          }
+        }
+
+        label {
+          height: 34px;
+          padding: 6px 12px 4px;
+          font-size: 14px;
+          font-weight: 400;
+          color: colors.$GRAYF;
+          border: 1px solid colors.$WHITESIXZERO;
+          border-radius: 30px;
+        }
       }
     }
 

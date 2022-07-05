@@ -7,6 +7,7 @@ import scrapsReducer from './scrapSlice'
 import modalReducer from './modalSlice'
 import filterReducer from './filterSlice'
 import articleReducer from './articleSlice'
+import glocationReducer from './glocationSlice'
 import { searchArticleApi } from 'services/nytimes'
 
 const persistConfig = {
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   modal: modalReducer,
   filter: filterReducer,
   article: articleReducer,
+  glocation: glocationReducer,
   [searchArticleApi.reducerPath]: searchArticleApi.reducer,
 })
 

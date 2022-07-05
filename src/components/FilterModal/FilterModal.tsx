@@ -11,8 +11,7 @@ import styles from './filterModal.module.scss'
 import DatePicker from 'components/DatePicker/DatePicker'
 import moment from 'moment'
 import { resetArticle } from 'store/articleSlice'
-
-const nations = ['대한민국', '중국', '일본', '미국', '북한', '러시아', '프랑스', '영국']
+import { setNation } from 'store/glocationSlice'
 
 const FilterModal = () => {
   const [headlineText, setHeadlineText] = useState('')
@@ -23,6 +22,8 @@ const FilterModal = () => {
 
   const isModalOpen = useAppSelector((state) => state.modal.isOpenModal)
   const filterState = useAppSelector((state) => state.filter)
+  const glocation = useAppSelector((state) => state.glocation)
+  const [checkNation, setCheckNation] = useState(glocation.checkNation)
   const headlineFlag = !!filterState.q
   const beginDateFlag = !!filterState.begin_date
   const endDateFlag = !!filterState.end_date
@@ -33,12 +34,11 @@ const FilterModal = () => {
     const text = e.currentTarget.value
     setHeadlineText(text)
   }
-  const onClickDataPicker = () => {
-    setDatePicker((prev) => !prev)
-  }
+  const onClickDataPicker = () => setDatePicker((prev) => !prev)
   const onSubmitFilter = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(resetArticle())
+    dispatch(setNation(checkNation))
     dispatch(
       modifyFilter({
         ...filterState,
@@ -56,6 +56,14 @@ const FilterModal = () => {
     if (start && end) {
       setDatePicker((prev) => !prev)
     }
+  }
+  const onChangeCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
+    const targetNation = event.currentTarget.id
+    const findIndex = checkNation.findIndex((element) => element.nation === targetNation)
+    const copyChekNation = [...checkNation]
+    copyChekNation[findIndex] = { ...copyChekNation[findIndex], checked: !copyChekNation[findIndex].checked }
+
+    setCheckNation(() => copyChekNation)
   }
 
   useOnClickOutside(containerRef, () => dispatch(closeModal()))
@@ -87,14 +95,20 @@ const FilterModal = () => {
           </div>
         )}
         <p>국가</p>
-        <div className={styles.checkboxs}>
-          {nations.map((nation) => (
-            <label key={`nation-${nation}`}>
-              <input type='checkbox' id='nation' value={nation} />
-              {nation}
-            </label>
+        <ul className={styles.checkboxs}>
+          {checkNation.map((nation) => (
+            <li key={`nation-${nation.nation}`}>
+              <input
+                type='checkbox'
+                name='nation'
+                id={nation.nation}
+                checked={nation.checked}
+                onChange={onChangeCheckBox}
+              />
+              <label htmlFor={nation.nation}>{nation.name}</label>
+            </li>
           ))}
-        </div>
+        </ul>
         <button className={styles.submitBtn} type='submit'>
           필터 적용하기
         </button>

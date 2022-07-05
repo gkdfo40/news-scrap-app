@@ -19,11 +19,13 @@ export const getNytimesArticle = async (params: Params) => {
           facet_fields: 'news_desk',
           facet_filter: true,
           sort: 'relevance',
+          fq: `glocation("RUSSIA" "KOREA")`,
           ...params,
         },
       }
     )
     const { docs } = res.data.response
+    if (docs.length === 0) throw new Error('docs is empty')
     return docs
   } catch (error) {
     throw new Error((error as Error).message)

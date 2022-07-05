@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import moment from 'moment'
 
 export interface FilterState {
   q: string

@@ -48,7 +48,7 @@ const HomeScreen = () => {
             </li>
           ))}
           {articleState.loading === 'pending' && <li>로딩중...</li>}
-          {articleState.loading === 'idle' && <li ref={loader} className={styles.loader} />}
+          {articleState.loading === 'idle' && !articleState.error && <li ref={loader} className={styles.loader} />}
         </ul>
       </div>
     </div>
