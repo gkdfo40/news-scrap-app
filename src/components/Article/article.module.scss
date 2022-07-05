@@ -37,10 +37,15 @@
       width: 16px;
       height: 15px;
       margin-top: 5px;
+
+      path {
+        stroke: colors.$GRAYF;
+      }
     }
 
     .scrap {
       path {
+        fill: colors.$STARFILL;
         stroke: colors.$STARFILL;
       }
     }
