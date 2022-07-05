@@ -5,6 +5,7 @@ export interface FilterState {
   begin_date: string
   end_date: string
   page: number
+  fq: string
 }
 
 const initialFilterState: FilterState = {
@@ -12,6 +13,7 @@ const initialFilterState: FilterState = {
   begin_date: '20220202',
   end_date: '20220202',
   page: 0,
+  fq: '',
 }
 
 const filterSlice = createSlice({
@@ -23,6 +25,7 @@ const filterSlice = createSlice({
       state.begin_date = action.payload.begin_date
       state.end_date = action.payload.end_date
       state.page = 0
+      state.fq = action.payload.fq
     },
     resetFilter(state) {
       Object.assign(state, initialFilterState)

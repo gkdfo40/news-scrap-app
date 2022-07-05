@@ -37,6 +37,10 @@ const FilterModal = () => {
   const onClickDataPicker = () => setDatePicker((prev) => !prev)
   const onSubmitFilter = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const glocationQuery = `glocation(${checkNation.reduce(
+      (prev, curr) => (curr.checked ? prev.concat(`${curr.nation} `) : prev),
+      ''
+    )})`
     dispatch(resetArticle())
     dispatch(setNation(checkNation))
     dispatch(
@@ -45,6 +49,7 @@ const FilterModal = () => {
         q: headlineText,
         begin_date: moment(startDate).format('YYYYMMDD'),
         end_date: moment(startDate).format('YYYYMMDD'),
+        fq: glocationQuery,
       })
     )
     dispatch(closeModal())
@@ -62,7 +67,6 @@ const FilterModal = () => {
     const findIndex = checkNation.findIndex((element) => element.nation === targetNation)
     const copyChekNation = [...checkNation]
     copyChekNation[findIndex] = { ...copyChekNation[findIndex], checked: !copyChekNation[findIndex].checked }
-
     setCheckNation(() => copyChekNation)
   }
 

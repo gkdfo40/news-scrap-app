@@ -21,7 +21,7 @@ const HeadFilter = () => {
   }
 
   const syntaxGlocation = useCallback((data: Nation[]) => {
-    if (data.length > 2) {
+    if (data.length > 1) {
       return `${data[0].name} 외 ${data.length - 1}개`
     }
     return data[0].name

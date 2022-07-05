@@ -8,6 +8,7 @@ export interface Params {
   end_date: string
   page: number
   q: string
+  fq: string
 }
 
 export const getNytimesArticle = async (params: Params) => {
@@ -19,7 +20,6 @@ export const getNytimesArticle = async (params: Params) => {
           facet_fields: 'news_desk',
           facet_filter: true,
           sort: 'relevance',
-          fq: `glocation("RUSSIA" "KOREA")`,
           ...params,
         },
       }
