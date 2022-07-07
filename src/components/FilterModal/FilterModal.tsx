@@ -15,12 +15,11 @@ import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
 import styles from './filterModal.module.scss'
 
 const FilterModal = () => {
-  // const [headlineText, setHeadlineText] = useState('')
-  const inputRef = useRef<string>('')
   const [isDatePickerOpen, setDatePicker] = useState(false)
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
   const containerRef = useRef<HTMLFormElement>(null)
+  const inputRef = useRef<string>('')
 
   const isModalOpen = useAppSelector((state) => state.modal.isOpenModal)
   const filterState = useAppSelector((state) => state.filter)
@@ -32,7 +31,6 @@ const FilterModal = () => {
 
   const dispatch = useAppDispatch()
 
-  console.log('rerender to input change')
   const onChangeHeadline = (e: ChangeEvent<HTMLInputElement>) => {
     inputRef.current = e.currentTarget.value
   }
