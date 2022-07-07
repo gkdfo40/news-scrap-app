@@ -15,7 +15,8 @@ import { useAppDispatch, useAppSelector } from 'hooks/reduxhook'
 import styles from './filterModal.module.scss'
 
 const FilterModal = () => {
-  const [headlineText, setHeadlineText] = useState('')
+  // const [headlineText, setHeadlineText] = useState('')
+  const inputRef = useRef<string>('')
   const [isDatePickerOpen, setDatePicker] = useState(false)
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(new Date())
@@ -31,9 +32,9 @@ const FilterModal = () => {
 
   const dispatch = useAppDispatch()
 
+  console.log('rerender to input change')
   const onChangeHeadline = (e: ChangeEvent<HTMLInputElement>) => {
-    const text = e.currentTarget.value
-    setHeadlineText(text)
+    inputRef.current = e.currentTarget.value
   }
   const onClickDataPicker = () => setDatePicker((prev) => !prev)
   const onSubmitFilter = (e: FormEvent<HTMLFormElement>) => {
@@ -48,7 +49,7 @@ const FilterModal = () => {
     dispatch(
       modifyFilter({
         page: 0,
-        q: headlineText,
+        q: inputRef.current,
         begin_date: moment(startDate).format('YYYYMMDD'),
         end_date: moment(startDate).format('YYYYMMDD'),
         fq: countNation ? glocationQuery : '',
@@ -81,7 +82,6 @@ const FilterModal = () => {
         <p>헤드라인</p>
         <input
           className={styles.filter}
-          value={headlineText}
           type='text'
           placeholder={headlineFlag ? filterState.q : '검색하실 헤드라인을 입력해주세요.'}
           onChange={onChangeHeadline}
